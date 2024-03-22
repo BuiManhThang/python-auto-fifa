@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body style="width: 100%; display: flex; align-items: center; padding: 20px;">
+  <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 20px;">
+    <button id="buy">Mua</button>
+    <div>Step: <span id="step">1</span></div>
+    <div>Price: <span id="price">2222</span></div>
+    <button id="done">Done</button>
+  </div>
+</body>
+
+<script>
+  const buyBtn = document.querySelector('#buy')
+  const doneBtn = document.querySelector('#done')
+  const stepTxt = document.querySelector('#step')
+  const priceTxt = document.querySelector('#price')
+
+  const price = [2, 2, 2, 2, 5]
+
+  let counter = 0
+  let step = 1
+
+  buyBtn.addEventListener('click', () => {
+    step += 1
+    stepTxt.textContent = step
+    counter += 1
+    priceTxt.textContent = `${price[counter]}${price[counter]}${price[counter]}${price[counter]}`
+  })
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") {
+      step = 1
+      stepTxt.textContent = step
+      priceTxt.textContent = `${price[counter]}${price[counter]}${price[counter]}${price[counter]}`
+    }
+  })
+
+  doneBtn.addEventListener('click', () => {
+    alert('Done!!!')
+  })
+
+</script>
+
+</html>
